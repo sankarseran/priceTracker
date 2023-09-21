@@ -25,6 +25,7 @@ export class FavoritesPageComponent {
         }
         return undefined;
       });
+      localStorage.setItem('favAssetsId', JSON.stringify(this.favAssetsId));
     });
   }
 }

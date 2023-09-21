@@ -10,9 +10,22 @@ import { AssetsState } from 'src/app/model/Assets.Model';
 const _AssetsReducer = createReducer(
   assetsState,
   on(loadAssetsSuccess, (state, action) => {
-    const list = action.list.filter(
+    const favIds = localStorage.getItem('favAssetsId');
+    let list = action.list.filter(
       (val) => val?.type_is_crypto && val?.price_usd
     );
+    if (favIds) {
+      const ids: string[] = JSON.parse(favIds);
+      list = list.map((val) => {
+        if (ids.findIndex((id) => val.asset_id === id) >= 0) {
+          return {
+            ...val,
+            isFav: true,
+          };
+        }
+        return val;
+      });
+    }
     localStorage.setItem('assetsList', JSON.stringify(list));
     return {
       ...state,
