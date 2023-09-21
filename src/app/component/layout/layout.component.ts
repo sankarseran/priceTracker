@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { filter } from 'rxjs/operators';
+import { loadAssets } from 'src/app/store/Assets/Assets.Action';
 
 @Component({
   selector: 'app-layout',
@@ -10,7 +12,7 @@ import { filter } from 'rxjs/operators';
 export class LayoutComponent {
   isFav: boolean | undefined;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private store: Store) {
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((event: any) => {
@@ -24,5 +26,9 @@ export class LayoutComponent {
 
   navToFav(): void {
     this.router.navigate([this.isFav ? '' : '/favorites']);
+  }
+
+  syncPrice(): void {
+    this.store.dispatch(loadAssets({ isForced: true }));
   }
 }

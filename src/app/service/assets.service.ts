@@ -13,9 +13,9 @@ export class AssetsService {
   options = { headers: this.headers };
   constructor(private http: HttpClient) {}
 
-  GetAll() {
+  GetAll(isForced: boolean) {
     const stringList = localStorage.getItem('assetsList');
-    if (stringList) {
+    if (stringList && !isForced) {
       return of(JSON.parse(stringList));
     }
     return this.http.get<Asset[]>(

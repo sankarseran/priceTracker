@@ -4,6 +4,14 @@
     <div class="name">Price Tracker</div>
   </div>
   <div class="cart-icon-container">
+    <button
+      mat-raised-button
+      *ngIf="isFav"
+      (click)="syncPrice()"
+      class="syncBtn"
+    >
+      Sync Price
+    </button>
     <span (click)="navToFav()" class="material-icons">
       {{ isFav ? "home" : "grade" }}
     </span>

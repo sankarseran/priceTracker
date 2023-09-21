@@ -18,6 +18,8 @@
   .cart-icon-container {
     position: relative;
     top: 4px;
+    display: flex;
+    align-items: center;
     .material-icons {
       font-size: 28px;
       cursor: pointer;
@@ -42,4 +44,8 @@
 }
 .padding-50 {
   padding-top: 50px;
+}
+
+.syncBtn {
+  margin-right: 10px;
 }

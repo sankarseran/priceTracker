@@ -8,7 +8,10 @@ export const LOAD_ASSETS_FAIL = '[assets page]load assets fail';
 export const UPDATE_ASSETS = '[assets page]update assets';
 export const UPDATE_ASSETS_SUCCESS = '[assets page]update assets success';
 
-export const loadAssets = createAction(LOAD_ASSETS);
+export const loadAssets = createAction(
+  LOAD_ASSETS,
+  props<{ isForced: boolean }>()
+);
 export const loadAssetsSuccess = createAction(
   LOAD_ASSETS_SUCCESS,
   props<{ list: Asset[] }>()

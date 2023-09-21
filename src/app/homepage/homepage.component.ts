@@ -52,7 +52,7 @@ export class HomepageComponent {
   }
 
   ngOnInit(): void {
-    this.store.dispatch(loadAssets());
+    this.store.dispatch(loadAssets({ isForced: false }));
     this.store.select(getAssetsList).subscribe((res: Asset[]) => {
       this.fullAssets = res;
       if (this.searchText.trim().length) {

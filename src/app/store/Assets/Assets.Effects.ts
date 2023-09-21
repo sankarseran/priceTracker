@@ -19,8 +19,8 @@ export class AssetsEffects {
   _loadAssets = createEffect(() =>
     this.action$.pipe(
       ofType(loadAssets),
-      exhaustMap(() => {
-        return this.service.GetAll().pipe(
+      exhaustMap((action) => {
+        return this.service.GetAll(action.isForced).pipe(
           map((data: Asset[]) => {
             return loadAssetsSuccess({ list: data });
           }),
