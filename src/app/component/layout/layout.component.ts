@@ -14,7 +14,6 @@ export class LayoutComponent {
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((event: any) => {
-        console.log();
         if (event?.url.split('/')[1] === 'favorites') {
           this.isFav = true;
         } else {
