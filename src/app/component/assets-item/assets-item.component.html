@@ -1,0 +1,23 @@
+<mat-card class="asset-item-container">
+  <div class="left-container">
+    <img [src]="imageUrl" />
+    <div class="name-container">
+      <span class="asset-name">{{ assetItem?.name }}</span>
+      <span class="asset-id">{{ assetItem?.asset_id }}</span>
+    </div>
+  </div>
+  <div class="right-container">
+    <div class="price-container">
+      USD: <span>{{ price }}</span>
+    </div>
+  </div>
+  <div class="last-container">
+    <span
+      (click)="addToFav()"
+      class="material-icons"
+      [ngClass]="{ selected: assetItem?.isFav }"
+    >
+      {{ "favorite" }}
+    </span>
+  </div>
+</mat-card>

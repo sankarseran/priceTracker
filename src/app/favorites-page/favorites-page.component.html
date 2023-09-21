@@ -1,1 +1,10 @@
-<p>favorites-page works!</p>
+<mat-card>
+  <mat-card-content>
+    <div *ngIf="assets.length">
+      <app-assets-list [assets]="assets" />
+    </div>
+    <div *ngIf="!assets.length" class="no-fav-content">
+      <span>No Favorite Found</span>
+    </div>
+  </mat-card-content>
+</mat-card>

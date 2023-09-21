@@ -4,7 +4,9 @@
   align-items: center;
   justify-content: space-between;
   padding: 8px 16px;
-  background-color: #3f51b5;
+  background-color: var(
+    --mat-stepper-header-selected-state-icon-background-color
+  );
   color: #fff;
   box-shadow: 0 3px 5px -1px rgb(0 0 0 / 20%), 0 6px 10px 0 rgb(0 0 0 / 14%),
     0 1px 18px 0 rgb(0 0 0 / 12%);
@@ -15,11 +17,11 @@
   z-index: 2;
   .cart-icon-container {
     position: relative;
-    border-bottom: 1px solid #fff;
     top: 4px;
     .material-icons {
       font-size: 28px;
       cursor: pointer;
+      border-bottom: 1px solid #fff;
     }
   }
   .left-container {

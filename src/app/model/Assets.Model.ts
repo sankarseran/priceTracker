@@ -16,6 +16,7 @@ export interface Asset {
   id_icon: string;
   data_start: Date;
   data_end: Date;
+  isFav?: boolean;
 }
 
 export interface AssetsState {

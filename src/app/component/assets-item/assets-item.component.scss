@@ -1,0 +1,52 @@
+.asset-item-container {
+  padding: 8px;
+  display: grid;
+  flex-direction: row;
+  justify-content: space-between;
+  grid-template-columns: 45% 45% 10%;
+  .left-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    img {
+      width: 32px;
+      margin-right: 10px;
+    }
+    .name-container {
+      display: flex;
+      flex-direction: column;
+      .asset-name {
+        font-size: 16px;
+        font-weight: 700;
+        color: #002358;
+      }
+      .asset-id {
+        font-size: 12px;
+        color: #002358;
+      }
+    }
+  }
+  .right-container {
+    display: flex;
+    align-items: center;
+    .price-container {
+      font-size: 14px;
+      font-weight: 500;
+      color: #24055b;
+    }
+  }
+  .last-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .material-icons {
+      cursor: pointer;
+      color: #6157576b;
+    }
+
+    .material-icons.selected {
+      color: #b73a3a;
+    }
+  }
+}

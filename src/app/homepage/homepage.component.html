@@ -1,1 +1,27 @@
-<p>homepage works!</p>
+<mat-card class="search-container">
+  <mat-form-field>
+    <mat-label>Search Coin</mat-label>
+    <input
+      id="searchInput"
+      #searchInput
+      type="text"
+      matInput
+      placeholder="Enter More than 3 letters.."
+      [(ngModel)]="searchText"
+    />
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+</mat-card>
+<mat-card>
+  <mat-card-content>
+    <div *ngIf="assets.length">
+      <app-assets-list [assets]="assets" />
+      <div *ngIf="!searchText.trim().length" class="button-container">
+        <button (click)="loadMoreData()" mat-button color="primary">
+          View More
+        </button>
+      </div>
+    </div>
+    <div *ngIf="!assets.length">Loading...</div>
+  </mat-card-content>
+</mat-card>

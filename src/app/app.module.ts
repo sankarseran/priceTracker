@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -14,13 +15,15 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
-import { LayoutComponent } from './component/layout/layout.component';
 import { FavoritesPageComponent } from './favorites-page/favorites-page.component';
 
+import { LayoutComponent } from './component/layout/layout.component';
+import { AssetsListComponent } from './component/assets-list/assets-list.component';
+import { AssetsItemComponent } from './component/assets-item/assets-item.component';
+
+import { AppEffects } from './store/Common/App.Effects';
 import { AssetsEffects } from './store/Assets/Assets.Effects';
 import { AssetsReducer } from './store/Assets/Assets.Reducer';
-import { AssestListComponent } from './component/assest-list/assest-list.component';
-import { AssestItemComponent } from './component/assest-item/assest-item.component';
 
 @NgModule({
   declarations: [
@@ -28,8 +31,8 @@ import { AssestItemComponent } from './component/assest-item/assest-item.compone
     HomepageComponent,
     LayoutComponent,
     FavoritesPageComponent,
-    AssestListComponent,
-    AssestItemComponent,
+    AssetsListComponent,
+    AssetsItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,8 +40,9 @@ import { AssestItemComponent } from './component/assest-item/assest-item.compone
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
+    FormsModule,
     StoreModule.forRoot({ coinassets: AssetsReducer }),
-    EffectsModule.forRoot([AssetsEffects]),
+    EffectsModule.forRoot([AssetsEffects, AppEffects]),
     StoreRouterConnectingModule.forRoot(),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     ServiceWorkerModule.register('ngsw-worker.js', {
